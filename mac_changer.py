@@ -9,11 +9,12 @@ def get_random_mac_address():
 
     mac = ""
     for i in range(6):
-        for j in range(2):
-            if i == 0:
-                mac += random.choice("02468ACE")
-            else:
-                mac += random.choice(uppercased_hexdigits)
+        for _ in range(2):
+            mac += (
+                random.choice("02468ACE")
+                if i == 0
+                else random.choice(uppercased_hexdigits)
+            )
         mac += ":"
     return mac.strip(":")
 
